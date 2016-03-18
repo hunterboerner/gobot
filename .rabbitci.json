@@ -4,7 +4,7 @@
     {
       "name": "Test it, bro",
       "boxes": [
-        "ubuntu/vivid64"
+        "ubuntu/wily64"
       ],
       "script": "./scripts/rabbit-ci.sh"
     }
