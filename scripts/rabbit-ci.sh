@@ -17,6 +17,6 @@ if ! go get github.com/golang/tools/cmd/cover; then go get golang.org/x/tools/cm
 go get -d -v ./...
 
 export DISPLAY=:99.0
-sh -e /etc/init.d/xvfb start
+sudo sh -e /etc/init.d/xvfb start
 
 ./scripts/travis.sh
