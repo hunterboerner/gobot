@@ -6,7 +6,7 @@
       "boxes": [
         "ubuntu/trusty64"
       ],
-      "before_script": "sudo apt-get install --fix-missing --force-yes git",
+      "before_script": "sudo apt-get install --fix-missing -y git",
       "script": "./scripts/rabbit-ci.sh"
     }
   ]
