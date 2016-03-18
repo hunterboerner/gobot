@@ -2,9 +2,9 @@
 set -v
 export GOPATH=$HOME/gopath
 export PATH=$HOME/gopath/bin:$PATH
-mkdir -p $HOME/gopath/src/github.com/hunterboerner/gobot
-rsync -az $HOME/workdir/ $HOME/gopath/src/github.com/hunterboerner/gobot/
-cd $HOME/gopath/src/github.com/hunterboerner/gobot
+mkdir -p $HOME/gopath/src/github.com/hybridgroup/gobot
+rsync -az $HOME/workdir/ $HOME/gopath/src/github.com/hybridgroup/gobot/
+cd $HOME/gopath/src/github.com/hybridgroup/gobot
 eval "$(curl -sL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme | GIMME_GO_VERSION=1.4 bash)"
 sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo add-apt-repository -y ppa:zoogie/sdl2-snapshots
