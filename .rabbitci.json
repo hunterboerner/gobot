@@ -6,6 +6,7 @@
       "boxes": [
         "ubuntu/trusty64"
       ],
+      "before_script": "sudo apt-get install -y git",
       "script": "./scripts/rabbit-ci.sh"
     }
   ]
