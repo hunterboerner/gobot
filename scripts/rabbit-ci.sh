@@ -22,8 +22,7 @@ case "$1" in
     $0 start
     ;;
   *)
-  echo "Bad argument:"
-  echo $1
+  echo "Bad argument: $1"
   echo "Usage: /etc/init.d/xvfb {start|stop|restart}"
   exit 1
 esac
