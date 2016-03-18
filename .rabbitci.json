@@ -1,0 +1,13 @@
+{
+  "repo": "https://github.com/hunterboerner/gobot.git",
+  "steps": [
+    {
+      "name": "Test it, bro",
+      "boxes": [
+        "ubuntu/trusty64"
+      ],
+      "before_script": "sudo apt-get install --fix-missing -y git",
+      "script": "./scripts/rabbit-ci.sh"
+    }
+  ]
+}
