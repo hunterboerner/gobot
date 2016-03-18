@@ -1,5 +1,34 @@
 #!/bin/bash
 set -v
+
+cat <<EOF | sudo tee /etc/init.d/xvfb > /dev/null
+XVFB=/usr/bin/Xvfb
+XVFBARGS=":99 -ac -screen 0 1024x768x24"
+PIDFILE=/tmp/cucumber_xvfb_99.pid
+case "$1" in
+  start)
+    echo -n "Starting virtual X frame buffer: Xvfb"
+    /sbin/start-stop-daemon --start --quiet --pidfile $PIDFILE --make-pidfile --background --exec $XVFB -- $XVFBARGS
+    echo "."
+    ;;
+  stop)
+    echo -n "Stopping virtual X frame buffer: Xvfb"
+    /sbin/start-stop-daemon --stop --quiet --pidfile $PIDFILE
+    rm -f $PIDFILE
+    echo "."
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+  echo "Usage: /etc/init.d/xvfb {start|stop|restart}"
+  exit 1
+esac
+exit 0
+EOF
+sudo chown root:root /etc/init.d/xvfb
+
 export GOPATH=$HOME/gopath
 export PATH=$HOME/gopath/bin:$PATH
 mkdir -p $HOME/gopath/src/github.com/hybridgroup/gobot
@@ -17,6 +46,6 @@ if ! go get github.com/golang/tools/cmd/cover; then go get golang.org/x/tools/cm
 go get -d -v ./...
 
 export DISPLAY=:99.0
-sudo sh -e /etc/init.d/xvfb start
+sh -e /etc/init.d/xvfb start
 
 ./scripts/travis.sh
