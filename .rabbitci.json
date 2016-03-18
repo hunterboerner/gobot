@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/hunterboerner/gobot.git",
+  "steps": [
+    {
+      "name": "Test it, bro",
+      "boxes": [
+        "ubuntu/vivid64"
+      ],
+      "script": "./scripts/rabbit-ci.sh"
+    }
+  ]
+}
